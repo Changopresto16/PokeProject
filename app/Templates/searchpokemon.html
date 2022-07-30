@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+
+<body>
+
+<div class="card text-white bg-warning">
+  <img class="card-img-top" src="holder.js/100px180/" alt="">
+  <div class="card-body">
+    <h4 class="card-title">Pokemon Information</h4>
+   
+  </div>
+</div>
+
+    <form class="container" method="POST">
+     {{ form.hidden_tag() }}   
+     {{ form.name }} 
+     {{ form.submit }}  
+    </form>
+     
+    {% if pokemon%}
+    <div class="card" style="width: 18rem;">
+        <img src="{{pokemon.img_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{pokemon.name}}</h5>
+          <p class="card-text">
+            <bold>Ability: {{pokemon.ability}}</bold>
+            <ul>
+                <li> HP: {{pokemon.hp}}</li>
+                <li> ATK: {{pokemon.attack}}</li>
+                <li> DEF: {{pokemon.defense}}</li>
+            </ul>
+
+          </p>
+        </div>
+      </div>
+    {%endif%}
+</body>
+
+</html>
