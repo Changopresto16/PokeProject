@@ -3,11 +3,7 @@ from flask import render_template, request, Blueprint
 from app.forms import PokemonSearchForm
 import requests 
 
-#poke_api=Blueprint('poke_api', __name__, template_folder = 'templates', static_folder='static')
-#user_service=Blueprint('user_service', __name__)
 
-#def register_user(user_id:int=0)-> int:
-    #return user_id
 
 @app.route('/')
 def index():

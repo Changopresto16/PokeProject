@@ -18,8 +18,6 @@ def load_user(user_id):
 
 app.register_blueprint(auth)
 
-
-
 app.config.from_object(Config)
 
 
