@@ -2,46 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
+ 
 
-<div class="card text-white bg-warning">
-  <img class="card-img-top" src="holder.js/100px180/" alt="">
-  <div class="card-body">
-    <h4 class="card-title">Pokemon Information</h4>
-   
+  {% include 'navbar.html' %}
+
+  <div class="container mx-auto" style="width: 400px;">
+    <img src='https://img.redbull.com/images/c_fill,w_1200,h_630,g_auto,f_auto,q_auto/redbullcom/2016/09/20/1331818966444_2/pok%C3%A9mon-super-mystery-dungeon' class="img-fluid" alt="...">
   </div>
-</div>
 
-    <form class="container" method="POST">
-     {{ form.hidden_tag() }}   
-     {{ form.name }} 
-     {{ form.submit }}  
-    </form>
-     
-    {% if pokemon%}
-    <div class="card" style="width: 18rem;">
-        <img src="{{pokemon.img_url}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{pokemon.name}}</h5>
-          <p class="card-text">
-            <bold>Ability: {{pokemon.ability}}</bold>
-            <ul>
-                <li> HP: {{pokemon.hp}}</li>
-                <li> ATK: {{pokemon.attack}}</li>
-                <li> DEF: {{pokemon.defense}}</li>
-            </ul>
 
-          </p>
-        </div>
-      </div>
-    {%endif%}
+  </div>
+
+  <form class="container" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name }}
+    {{ form.submit }}
+  </form>
+
+  {% if pokemon%}
+  <div class="card" style="width: 18rem;">
+    <img src="{{pokemon.img_url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{pokemon.name}}</h5>
+      <p class="card-text">
+        <bold>Ability: {{pokemon.ability}}</bold>
+      <ul>
+        <li> HP: {{pokemon.hp}}</li>
+        <li> ATK: {{pokemon.attack}}</li>
+        <li> DEF: {{pokemon.defense}}</li>
+      </ul>
+
+      </p>
+    </div>
+  </div>
+
+  {%endif%}
+
+  
 </body>
-
 </html>

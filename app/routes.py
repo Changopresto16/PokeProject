@@ -1,20 +1,26 @@
 from app import app
-from flask import render_template, request
-import requests 
+from flask import render_template, request, Blueprint
 from app.forms import PokemonSearchForm
+import requests 
 
+#poke_api=Blueprint('poke_api', __name__, template_folder = 'templates', static_folder='static')
+#user_service=Blueprint('user_service', __name__)
+
+#def register_user(user_id:int=0)-> int:
+    #return user_id
 
 @app.route('/')
 def index():
     return render_template('index.html')    
 
 @app.route('/search', methods =  ["GET","POST"])
-def searchPokemon():
+def search_pokemon():
     form= PokemonSearchForm()
     my_dict = {}
+    print(my_dict)
     if request.method == "POST":
-        poke_name = form.name.data
-
+        print('pikachu')
+        poke_name = form.name.data.lower()
 
 
         url = f"https://pokeapi.co/api/v2/pokemon/{poke_name}"
@@ -29,5 +35,7 @@ def searchPokemon():
                 'attack': data['stats'][1]['base_stat'],
                 'defense': data['stats'][2]['base_stat']
             }
-  
-    return render_template('searchpokemon.html', form=form, pokemon = my_dict)
+            print(my_dict)
+            return render_template('searchpokemon.html', form = form, pokemon = my_dict)
+
+    return render_template('searchpokemon.html', form = form, pokemon = my_dict)
