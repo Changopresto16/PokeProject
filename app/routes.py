@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, Blueprint
+from flask import render_template, request #, #Blueprint
 from app.forms import PokemonSearchForm
 import requests 
 

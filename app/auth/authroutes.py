@@ -1,3 +1,4 @@
+from click import confirm
 from app.models import db
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from .authforms import LoginForm, UserCreationForm
@@ -21,7 +22,7 @@ def logMeIn():
             password = form.password.data
 
             user = User.query.filter_by(username=username).first()
-            print(user.username, user.password, user.id)
+            
             if user:
 
                 if check_password_hash(user.password, password):
@@ -49,6 +50,8 @@ def signMeUp():
             username = form.username.data
             email = form.email.data
             password = form.password.data
+            
+
 
             user = User(username, email, password)
 
