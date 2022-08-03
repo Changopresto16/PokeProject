@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <img href ="editpic" src="https://static.pokemonpets.com/images/monsters-images-300-300/132-Ditto.webp" alt="">
+    <form class="container" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.username(class='form-control', placeholder='username', value=user.username) }}
+        {{ form.email(class='form-control', placeholder='email', value=user.email) }}
+        {{ form.submit(class='btn btn-primary') }}
+    </form>
+{% endblock %}

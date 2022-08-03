@@ -1,7 +1,7 @@
 from click import confirm
 from app.models import db
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from .authforms import LoginForm, UserCreationForm
+from .authforms import LoginForm, UserCreationForm, EditProfileForm
 
 
 from flask_login import login_user, logout_user, login_required, current_user
@@ -63,3 +63,25 @@ def signMeUp():
         else:
             flash('Invalid form. Please fill it out correctly.', 'danger')
     return render_template('signup.html', form = form)
+
+@auth.route('/editprofile', methods=["GET", "POST"])
+def EditProfile():
+    form = EditProfileForm()
+    user = User.query.get(current_user.id)
+    if request.method == "POST":
+        print('POST request made')
+        if form.validate():
+            username = form.username.data
+            email = form.email.data
+
+
+
+            user.username = username
+            user.email = email
+            db.session.commit()
+
+            flash("Successfully changed info", 'success')
+            return redirect(url_for('auth.EditProfile'))
+        else:
+            flash('Invalid form. Please fill it out correctly.', 'danger')
+    return render_template('editprofile.html', form = form, user = user)
