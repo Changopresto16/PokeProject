@@ -6,6 +6,7 @@ from .models import db
 
 
 from .auth.authroutes import auth
+#from .Trainers.trainroute import Trainers 
 from .models import User
 
 app = Flask(__name__)
@@ -17,9 +18,10 @@ def load_user(id):
 
 
 app.register_blueprint(auth)
-
+#app.register_blueprint(Trainers)
 app.config.from_object(Config)
 
+from.models import db
 
 db.init_app(app)
 migrate = Migrate(app, db)

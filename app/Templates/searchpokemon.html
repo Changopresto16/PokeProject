@@ -13,16 +13,24 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
     integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">   
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <style>
+    body {
+      background-image: url('https://images.alphacoders.com/723/thumb-1920-723301.jpg');
+    }
+  </style>
+
 </head>
 
 <body>
- 
+
 
   {% include 'navbar.html' %}
 
   <div class="container mx-auto" style="width: 400px;">
-    <img href="srchimg" src='https://img.redbull.com/images/c_fill,w_1200,h_630,g_auto,f_auto,q_auto/redbullcom/2016/09/20/1331818966444_2/pok%C3%A9mon-super-mystery-dungeon' class="img-fluid" alt="...">
+    <img href="srchimg"
+      src='https://img.redbull.com/images/c_fill,w_1200,h_630,g_auto,f_auto,q_auto/redbullcom/2016/09/20/1331818966444_2/pok%C3%A9mon-super-mystery-dungeon'
+      style="width:500px;height:400px;">
   </div>
 
 
@@ -53,6 +61,7 @@
 
   {%endif%}
 
-  
+
 </body>
+
 </html>

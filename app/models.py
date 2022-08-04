@@ -6,7 +6,7 @@ db = SQLAlchemy()
 
 
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String(50), primary_key=True)
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(150), nullable=False)
     password = db.Column(db.String(250), nullable=False)
@@ -15,5 +15,23 @@ class User(db.Model, UserMixin):
         self.username = username
         self.email = email
         self.password = generate_password_hash(password)
+
+
+class Pokemon(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200))
+    ability = db.Column(db.String(200))
+    img_url = db.Column(db.String(200))
+    hp = db.Column(db.Integer)
+    attack = db.Column(db.Integer)
+    defense = db.Column(db.Integer)
+
+    def __init__(self, name, hp, defense, attack, img_url, ability):
+        self.name = name
+        self.ability = ability
+        self.img_url = img_url
+        self.hp = hp
+        self.attack = attack
+        self.defense = defense
 
 

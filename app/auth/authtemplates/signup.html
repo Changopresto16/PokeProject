@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">   
 {% block content %}
-    <img src="https://www.shareicon.net/data/256x256/2016/08/05/807319_gaming_512x512.png" alt="">
+    <img src="https://www.shareicon.net/data/256x256/2016/08/05/807319_gaming_512x512.png" style="margin-left: 15cm ;">
     <form class="container" method="POST">
         {{ form.hidden_tag() }}
         {{ form.username(class='form-control', placeholder='username', autocomplete='off') }}
