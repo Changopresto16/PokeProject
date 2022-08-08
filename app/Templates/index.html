@@ -22,13 +22,27 @@
 <img src="https://cdn.mos.cms.futurecdn.net/nJqzZf3iyhawJfofUMicFV-1200-80.jpg" alt="">
 
 {% block content %}
+<div class="card" style="width: 18rem;">
 
 
-{% for x in names %}
+
+{% for x in pokemon %}
     
- 
+<img src="{{x.img_url}}" class="card-img-top" alt="...">
+<div class="card-body">
+  <h5 class="card-title">{{x.name}}</h5>
+  <p class="card-text">
+    <bold>Ability: {{x.ability}}</bold>
+  <ul>
+    <li> HP: {{x.hp}}</li>
+    <li> ATK: {{x.attack}}</li>
+    <li> DEF: {{x.defense}}</li>
+  </ul>
+
+  </p>
+</div>
     
 {% endfor %}
-
+</div>
 
 {% endblock %}

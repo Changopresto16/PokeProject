@@ -82,4 +82,4 @@ def EditProfile():
             return redirect(url_for('auth.EditProfile'))
         else:
             flash('Invalid form. Re-Enter data', 'danger')
-    return render_template('editprofile.html', form=form, user=user)
+    return render_template('editprofile.html', form=form, user=user, id=user)
